@@ -1,0 +1,61 @@
+
+/*
+* New Site Styles
+*/
+
+:root {
+    --desktop-max-width: 1080px;
+}
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    position: relative;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    color: rgba(var(--color-basetext),1);
+}
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+body.ready_ {
+    opacity: 1;
+}
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+}
+
+#wpadminbar {
+    display: none;
+}
+.bazz-widget {
+    display: none;
+}
+#wpfront-scroll-top-container {
+    display: none!important;
+}
+
+mob {
+    display: none;
+}
+@media screen and (max-width: 800px) {
+    body {
+        padding-top: 80px!important;
+        padding-bottom: 70px!important;
+    }
+    mob {
+        display: initial;
+    }
+    desk {
+        display: none;
+    }
+}

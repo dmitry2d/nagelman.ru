@@ -1,0 +1,20 @@
+/*
+Theme Name:         main_theme
+Theme URI:          
+Description:        main_theme
+Version:            1.0.7
+Author:             iron-yyy
+Author URI:         
+License:            GNU General Public License v2 or later
+License URI:        
+Text Domain:        main_theme
+
+*/
+
+
+@import 'old.css';
+
+/* 
+All new css is inside /new/*.php files
+Common css and css variables are in template-common.php
+*/
