@@ -8,18 +8,20 @@
 */
 ?>
 
-
 <section id="main" class="section__welcome">
 
-<?php echo $DEV_; ?>
-
+    <div class="section__welcome__background">
+        <img src="<?= get_field('welcome_section__background')?:'' ?>" alt="">
+    </div>
+    
     <div class="section__welcome__container">
     
         <div class="section__welcome__split">
 
             <div class="section__welcome__photo">
                 <desk>
-                    <img src="<?= the_field('welcome_section__desktop_photo'); ?>" alt="">
+                    <img src="<?= the_field('welcome_section__desktop_photo'); ?>" alt="" class=section__welcome__photo__image>
+                    <img src="<?= the_field('welcome_section__photo__writings'); ?>" alt="" class=section__welcome__photo__writings>
                 </desk>
             </div>
 
@@ -38,35 +40,42 @@
                         <img src="<?= the_field('welcome_section__mobile_photo'); ?>" alt="">
                     </div>
                 </mob>
-
-                <div class="section__welcome__directions__title">
-                    <?= the_field('welcome_section__directions_title'); ?>
+                                
+                <div class="section__welcome__citate__text">
+                    <?= the_field('welcome_section__title__citate'); ?>
                 </div>
-
-                <div class="section__welcome__directions__text">
-                    <?php
-                        $rows = get_field('welcome_section__directions');
-                        if( $rows ) {
-                            foreach( $rows as $row ) {
-                                echo '<div>' . $row['title'] . '</div>';
-                            }
-                        }
-                    ?>
-                </div>
-
-                <?php
-                    if (get_field('welcome_section__show_vk_link')) {
-                ?>
-                    <a href="https://vk.com/enagelman" class="welcome_section__vk-link" style="color:rgba(var(--color-highlight),1)">
-                        Мой личный блог в<span></span>
-                    </a>
-                <?php
-                    }
-                ?>
 
             </div>
 
         </div>
+
+        
+        <div class="section__welcome__directions__title">
+            <?= the_field('welcome_section__directions_title'); ?>
+        </div>
+
+
+        <div class="section__welcome__directions__text">
+            <?php
+                $rows = get_field('welcome_section__directions');
+                if( $rows ) {
+                    foreach( $rows as $row ) {
+                        echo '<div>' . $row['title'] . '</div>';
+                    }
+                }
+            ?>
+            <div></div><div></div><div></div>
+        </div>
+
+        <?php
+            if (get_field('welcome_section__show_vk_link')) {
+        ?>
+            <a href="https://vk.com/enagelman" class="welcome_section__vk-link" style="color:rgba(var(--color-highlight),1)">
+                Мой личный блог в<span></span>
+            </a>
+        <?php
+            }
+        ?>
             
         <div class="section__welcome__long-description" expand-id="section__welcome__long-description">
             <div class="section__welcome__long-description__text">
@@ -86,13 +95,6 @@
                 </div>
             </div>
 
-
-        <!-- <div class="ow-button-base ow-button-align-center">
-            <a class="bttn section__welcome__counsult-button" href="#myModal2" data-toggle="modal">
-                Записаться онлайн
-            </a>
-        </div> -->
-
     </div>
 
 </section>
@@ -100,6 +102,8 @@
 <style>
     .section__welcome {
         all: unset;
+        position: relative;
+        top: -30px;
     }
     .section__welcome__container {
         width: 100%;
@@ -107,11 +111,42 @@
         margin: 0 auto;
         padding: 40px 20px 0;
     }
+    .section__welcome__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .section__welcome__background img {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+    
     .section__welcome__split {
         display: flex;
     }
     .section__welcome__photo {
         min-width: 40%;
+        max-width: 40%;
+        display: flex;
+        min-height: 100%;
+    }
+    .section__welcome__photo__image {
+        object-fit: cover;
+        height: 100%;
+    }
+    .section__welcome__photo__writings {
+        display: block;
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+        width: 45%;
     }
     .section__welcome__data {
         flex-grow: 1;
@@ -127,7 +162,38 @@
         color: rgba(var(--color-basetext),1)!important;
         -webkit-text-fill-color: rgba(var(--color-basetext),1);
         padding-bottom: 20px;
+        margin-top: 30px;
     }
+
+    div.section__welcome__citate__text {
+        position: relative;
+        font-size: 15px;
+        line-height: 30px;
+        padding: 90px 0 60px;
+        font-style: italic;
+    }
+    div.section__welcome__citate__text:before {
+        position: absolute;
+        content: '';
+        top: 30px;
+        left: 0;
+        width: 55px;
+        height: 35px;
+        background: url('/wp-content/themes/main/new/images/quotes.svg') no-repeat left top;
+        opacity: 40%;
+    }
+    div.section__welcome__citate__text:after {
+        position: absolute;
+        content: '';
+        bottom: 10px;
+        right: 0;
+        width: 55px;
+        height: 35px;
+        background: url('/wp-content/themes/main/new/images/quotes.svg') no-repeat left top;
+        opacity: 40%;
+        transform: rotate(180deg);
+    }
+
     div.section__welcome__directions__title {
         padding-top: 20px;
         padding-bottom: 10px;
@@ -138,16 +204,24 @@
         align-items: center;
         color: rgba(var(--color-heading),1)!important;
         -webkit-text-fill-color: rgba(var(--color-heading),1);
+        margin-top: 50px;
     }
     .section__welcome__directions__text {
         padding-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -8px;
     }
     .section__welcome__directions__text > div {
         position: relative;
+        box-sizing: border-box;
         padding-left: 20px;
-        margin: 8px 0;
+        margin: 5px 8px;
+        flex-basis: 0;
+        min-width: 250px;
+        flex-grow: 1;
     }
-    .section__welcome__directions__text > div:after {
+    .section__welcome__directions__text > div:not(:empty):after {
         position: absolute;
         content: '';
         left: 0;
