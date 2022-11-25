@@ -77,6 +77,14 @@
             }
         ?>
             
+        <div class="section__welcome__problems">
+            <?= the_field('welcome_section__problems'); ?>
+        </div>
+        
+        <div class="section__welcome__solution">
+            <?= the_field('welcome_section__solution'); ?>
+        </div>
+        
         <div class="section__welcome__long-description" expand-id="section__welcome__long-description">
             <div class="section__welcome__long-description__text">
                 <?= the_field('welcome_section__long_description'); ?>
@@ -259,9 +267,27 @@
         height: 12px;
         background: rgba(var(--color-highlight),1) url('/wp-content/themes/main/new/images/vk_w.svg') no-repeat right center;
     }
+    
+    .section__welcome__problems h1 {
+        color: #A18E80;
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: 700;
+    }
+    .section__welcome__solution {
+        margin: 40px 0;
+        background: #A18E8012;
+        padding: 30px;
+        border-radius: 20px;
+    }
+    
+
     .section__welcome__long-description {
         padding: 50px 0 0;
     }
+
+
+
 
     div[expand-id][expanded] {
         display: block;
