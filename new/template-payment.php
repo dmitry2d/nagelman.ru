@@ -10,7 +10,7 @@
     $SberAPIPassword = '';
 
     // API Keys
-    get_template_part ('new/section', 'apikeys');
+    get_template_part ('apikeys/section', 'apikeys');
 
     $orderId = $_GET['orderId'];
 

@@ -26,7 +26,7 @@ API ключи лежат в файле ./new/section-apikeys.php, которы�
 Содержание файла API ключей:
 ```php
 // SBER payment API
-    $SberAPILogin = 'p263512064609-api';
-    $SberAPIPassword = 'elenanagelmanruapi2022';
+    $SberAPILogin = '***-api';
+    $SberAPIPassword = '***';
 ```
 
