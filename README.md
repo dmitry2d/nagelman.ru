@@ -19,14 +19,3 @@
 
 Установлен интернет-эквайринг от Сбербанка
 
-
-## API ключи
-
-API ключи лежат в файле ./new/section-apikeys.php, который здесь не представлен
-Содержание файла API ключей:
-```php
-// SBER payment API
-    $SberAPILogin = '***-api';
-    $SberAPIPassword = '***';
-```
-

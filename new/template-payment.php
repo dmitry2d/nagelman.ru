@@ -6,12 +6,10 @@
 
 <?php
 
-    $SberAPILogin = '';
-    $SberAPIPassword = '';
-
     // API Keys
-    get_template_part ('apikeys/section', 'apikeys');
-
+    $SberAPILogin = get_field('SberAPILogin', 1010);
+    $SberAPIPassword = get_field('SberAPIPassword', 1010);
+    
     $orderId = $_GET['orderId'];
 
     /* If orderId id specified 
@@ -22,6 +20,7 @@
         $urlString .= "?userName=".$SberAPILogin;
         $urlString .= "&password=".$SberAPIPassword;
         $urlString .= "&orderId=".$orderId;
+
         $content = file_get_contents($urlString);
         $data = json_decode($content);
         $serviceId = $_GET['serviceID'];
@@ -65,6 +64,7 @@
         $urlString .= "&description=".urlencode($customerName);
         $urlString .= "&email=".$customerEmail;
         $urlString .= "&returnUrl=http://elenanagelman.ru/payment?serviceID=".$serviceID;
+
         $content = file_get_contents($urlString);
         $data = json_decode($content);
         // Relocate to URL from API response to continue payout
