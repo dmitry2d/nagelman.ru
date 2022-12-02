@@ -1,2 +1,3 @@
 .vscode
-.new/section-apikeys.php
+.apikeys
+.gitignore
