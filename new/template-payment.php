@@ -3,11 +3,14 @@
 * Template Name: Оплата
 */
 ?>
+
 <?php
 
-    // Api login / pass
-    $apiLogin = 'p263512064609-api';
-    $apiPassword = 'elenanagelmanruapi2022';
+    $SberAPILogin = '';
+    $SberAPIPassword = '';
+
+    // API Keys
+    get_template_part ('new/section', 'apikeys');
 
     $orderId = $_GET['orderId'];
 
@@ -16,8 +19,8 @@
     */
     if ($orderId) {
         $urlString = "https://securepayments.sberbank.ru/payment/rest/getOrderStatusExtended.do";
-        $urlString .= "?userName=".$apiLogin;
-        $urlString .= "&password=".$apiPassword;
+        $urlString .= "?userName=".$SberAPILogin;
+        $urlString .= "&password=".$SberAPIPassword;
         $urlString .= "&orderId=".$orderId;
         $content = file_get_contents($urlString);
         $data = json_decode($content);
@@ -55,8 +58,8 @@
         $uid = uniqid();
         // Register new order
         $urlString = "https://securepayments.sberbank.ru/payment/rest/register.do";
-        $urlString .= "?userName=".$apiLogin;
-        $urlString .= "&password=".$apiPassword;
+        $urlString .= "?userName=".$SberAPILogin;
+        $urlString .= "&password=".$SberAPIPassword;
         $urlString .= "&orderNumber=".$uid;
         $urlString .= "&amount=". (100 * $servicePrice);
         $urlString .= "&description=".urlencode($customerName);
