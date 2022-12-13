@@ -3,9 +3,7 @@
 * Template Name: Оплата
 */
 ?>
-
 <?php
-
     // API Keys
     $SberAPILogin = get_field('SberAPILogin', 1010);
     $SberAPIPassword = get_field('SberAPIPassword', 1010);
@@ -66,18 +64,20 @@
         $urlString .= "&returnUrl=http://elenanagelman.ru/payment?serviceID=".$serviceID;
 
         $content = file_get_contents($urlString);
+
         $data = json_decode($content);
+                
         // Relocate to URL from API response to continue payout
         if ($data -> formUrl) {
-            header("Location: " . $data -> formUrl);
-            exit ();
+            wp_redirect($data -> formUrl);
+            exit;
+            // header("Location: " . $data -> formUrl);
+            // exit ();
         } else {
             $error = "Ошибка системы оплаты";
         }
     }
 ?>
-
-
     
 <?php 
     get_template_part ('new/section', 'header');

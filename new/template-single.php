@@ -27,6 +27,13 @@
                 the_content ();
             ?>
 
+            <!-- Add service card if it's in Services category -->
+            <?php
+                if (in_category('services')){
+                    get_template_part ('new/section', 'services');
+                }
+            ?>
+
             <?php endwhile; endif; ?>
         </div>
         <div class="template__page__sidebar">

@@ -2,7 +2,7 @@
 
 <?php
 /*
-* Template Name: Стандартная страница
+* Template Name: Страница Услуга
 */
 ?>
     
@@ -14,7 +14,7 @@
 ?>
 <div class="template__page">
 
-    <div class="template__page__title"><?php the_title();?></div>
+    <div class="template__page__title"><?php the_title(); ?></div>
 
     <div class="template__page__container">
 
