@@ -64,17 +64,6 @@
           </div>
         </div>
       </div><!-- Модальное окно -->
-       <!-- Модальное окно2 -->
-      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <div class="modal-body row text-center">
-                <?php echo do_shortcode( '[contact-form-7 id="382" title="Напишите мне"]')?>
-            </div>
-          </div>
-        </div>
-      </div><!-- Модальное окно2 -->
 
 
     <script>
