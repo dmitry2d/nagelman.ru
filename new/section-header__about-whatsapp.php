@@ -74,7 +74,6 @@
         body.mobile_menu_open .section__header__about-link {
             padding-bottom: 0;
         }
-        }
         body.mobile_menu_open .section__header__whatsapp-link {
             padding-top: 20px;
         }
