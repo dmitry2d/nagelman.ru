@@ -1,9 +1,11 @@
 
 <?php
 /*
-* Section Header - About &  Consult
+* Section Header - About &  Consult Buttons
+<!-- Inactive from 2022/17/12 -->
 */
 ?>
+
 
 <!-- About Button -->
 <div class="section__header__about-link">
@@ -12,7 +14,6 @@
 
 <!-- Consult Form -->
 <div class="section__header__consult-link header-form">
-    <!-- <p class="form-hidden popmake-539">Записаться онлайн</p> -->
     <div class="" id="online-consult-form-open">Записаться онлайн</div>
     <div class="form-visible" style="display: none;" id="online-consult-form-container">
         <?php echo do_shortcode( '[contact-form-7 id="478" title="Форма в шапке"]' );?>

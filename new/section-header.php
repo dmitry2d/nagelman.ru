@@ -77,7 +77,7 @@
 
                 <!-- Consult Form Button -->
                 <?php
-                    get_template_part ('new/section', 'header__about-consult');
+                    get_template_part ('new/section', 'header__about-whatsapp');
                 ?>
 
                 <!-- Social Links -->
