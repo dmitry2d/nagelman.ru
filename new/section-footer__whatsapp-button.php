@@ -21,6 +21,7 @@
 <style>
     .section__footer__whatsapp-link {
         padding: 0 10px;
+        flex-grow: 1;
     }
     .section__footer__whatsapp-link a {
         font-weight: 400;
