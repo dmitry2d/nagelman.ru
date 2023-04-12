@@ -4,6 +4,7 @@
 /**
  * Dev Vars
  */
+define( 'WP_DEBUG', true );
 $NEW_SITE = true;
 $_POST['DEV_MODE'] = (strpos($_SERVER['REMOTE_ADDR'], '252.111.18') == 3);
 

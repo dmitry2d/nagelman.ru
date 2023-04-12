@@ -14,10 +14,13 @@
     </a>  
     <a onclick="ym('47499343', 'reachGoal', 'click-on-skype-top');" rel="nofollow" href="skype:nagelman3?call" title="Мой Skype">
         <img src="<?= get_template_directory_uri(); ?>/new/images/skype.svg">
-    </a>  
-    <a onclick="ym('47499343', 'reachGoal', 'click-on-whatsapp-top');" rel="nofollow" href="https://wa.me/79210205165" target="_blank" title="Мой Whatsapp">
-        <img src="<?= get_template_directory_uri(); ?>/new/images/whatsapp.svg">
-    </a>  
+    </a>
+    <mob>
+        <a onclick="ym('47499343', 'reachGoal', 'click-on-whatsapp-top');" rel="nofollow" href="https://wa.me/79210205165" target="_blank" title="Мой Whatsapp">
+            <img src="<?php echo get_template_directory_uri(); ?>/new/images/whatsapp.svg">
+        </a>  
+    </mob>
+        
 </div>
 
 <style>
