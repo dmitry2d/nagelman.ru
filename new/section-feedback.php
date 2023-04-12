@@ -1,8 +1,5 @@
 
 
-
-
-
 <?php
 /*
 * Recent Feedback Section
@@ -120,6 +117,7 @@
         justify-content: center;
         border-radius: 100px;
         font-size: 14px!important;
+        border: 1px solid #00000012;
     }
     .section__feedback__items .flex-direction-nav li a i {
         color: #3B3B3B;

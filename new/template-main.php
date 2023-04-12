@@ -14,9 +14,18 @@
 ?>
 
 <?php 
-    get_template_part ('new/section', 'welcome');
-?>
+if ($_POST['DEV_MODE']) {
 
+    get_template_part ('new/section', 'welcome__part1');
+
+    get_template_part ('new/section', 'youtube');
+
+    get_template_part ('new/section', 'welcome__part2');
+ 
+} else {
+    get_template_part ('new/section', 'welcome');
+}
+?>
 <?php 
     get_template_part ('new/section', 'feedback');
 ?>

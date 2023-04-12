@@ -8,7 +8,6 @@
     
 <div class="section__services">
 
-
     <?php
         if ( is_category() && have_posts() ) {
             while ( have_posts() ) : the_post();
