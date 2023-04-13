@@ -16,12 +16,10 @@
                 $rows = get_field('youtube_video_list');
                 if( $rows ) {
                     foreach( $rows as $row ) {
-                            echo '<li><div class="section__youtube__item">';
+                            echo '<li><div class="section__youtube__item" video__code="' . $row['video_id'] . '">';
                                 echo '<div class="section__youtube__item__preview"><img src="' . $row['img'] . '"></div>';
-                                echo '<div class="section__youtube__item__video">';
-                                    echo '<iframe width="100%" src="https://www.youtube.com/embed/';
-                                    echo $row['video_id'];
-                                    echo '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+                                echo '<div class="section__youtube__item__video" video__code="' . $row['video_id'] . '">';
+                                    echo '<iframe width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
                                 echo '</div>';
                                 echo '<div class="section__youtube__item-title">' . $row['title'] . '</div>';
                             echo '</div></li>';
@@ -81,15 +79,29 @@
     }
     .section__youtube__item__video {
         width: 100%;
+        top: 0;
+        left: 0;
+        height: calc(100% - 90px);
         position: absolute;
-        inset: 0;
         display: none;
+    }
+    .section__youtube__item.playing .section__youtube__item__video {
+        display: block;
     }
     .section__youtube__item__preview {
         width: 100%;
         padding-bottom: 54%;
         height: 0;
-        overflow: hidden;
+    }
+    .section__youtube__item__preview:after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: '';
+        pointer-events: none;
+        background: url("<?= get_template_directory_uri(); ?>/new/images/icn_youtube_custom_play.svg") no-repeat center center;
     }
     
     .section__youtube__item__preview img {
@@ -101,7 +113,7 @@
         border-radius: 20px;
         object-fit: cover;
         object-position: center center;
-        opacity: 0.03;
+        /* opacity: 0.03; */
     }
 
     .section__youtube__items .slides li h3 {
@@ -122,7 +134,8 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
-        align-items: center;    
+        align-items: center;
+        pointer-events: none;
     }
     .section__youtube .flex-direction-nav .flex-next  {
         left: unset;
@@ -141,6 +154,7 @@
     .section__youtube__items .flex-direction-nav li {
         width: 60px;
         height: 60px;
+        pointer-events: all;
     }
     .section__youtube__items .flex-direction-nav li a {
         overflow: visible!important;
@@ -220,6 +234,10 @@
             line-height: 28px;
         }
 
+        .section__youtube__item__video {
+            height: calc(100% - 58px);
+        }
+
         .section__youtube__items {
             /* margin: 10px 0px 20px; */
             padding-bottom: 1px;
@@ -263,6 +281,24 @@ $(document).ready(() => {
         nextText: '',
         controlNav: false
     });
+    // $(document).on('click', '[youtube__video__code]', e => {
+    //     console.log (111);
+    // })
+    $('.section__youtube__item').on('click', e => {
+        console.log (111);
+        try {
+            const code = $(e.currentTarget).attr('video__code');
+            const iframe = $(e.currentTarget).find('iframe');
+            $(e.currentTarget).addClass('playing');
+            setTimeout (() => {
+                iframe.attr('src', "https://youtube.com/embed/" + code + '');
+            },200);
+        } catch (e) {};
+    });
+    $('.section__youtube').on ('click', ' .flex-direction-nav a', e => {
+        $('.section__youtube__item').find('iframe').attr('src', '');
+        $('.section__youtube__item').removeClass('playing');
+    })
 });
 </script>
 
