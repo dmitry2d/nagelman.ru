@@ -14,7 +14,7 @@
 ?>
 
 <?php 
-if ($_POST['DEV_MODE']) {
+if ($_GET['DEV']=='1') {
 
     get_template_part ('new/section', 'welcome__part1');
 

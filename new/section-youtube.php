@@ -16,10 +16,12 @@
                 $rows = get_field('youtube_video_list');
                 if( $rows ) {
                     foreach( $rows as $row ) {
-                            echo '<li><div class="section__youtube__item" video__code="' . $row['video_id'] . '">';
-                                echo '<div class="section__youtube__item__preview"><img src="' . $row['img'] . '"></div>';
-                                echo '<div class="section__youtube__item__video" video__code="' . $row['video_id'] . '">';
-                                    echo '<iframe width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+                            if(!$row['show']) {
+                                continue;
+                            }
+                            echo '<li><div class="section__youtube__item">';
+                                echo '<div class="section__youtube__item__video">';
+                                    echo '<iframe width="100%" height="100%" src="https://youtube.com/embed/' . $row['video_id'] . '" frameborder="0" allow="autoplay" allowfullscreen></iframe>';
                                 echo '</div>';
                                 echo '<div class="section__youtube__item-title">' . $row['title'] . '</div>';
                             echo '</div></li>';
@@ -28,9 +30,7 @@
                 ?>
             </ul>
         </div>
-
     </div>
-
 </section>
 
 <style>
@@ -73,47 +73,37 @@
 
     .section__youtube__item {
         overflow: hidden;
+        border-radius: 10px;
         width: 100%;
         max-width: 800px;
         margin: 0 auto;
+        padding: 0 10px;
     }
     .section__youtube__item__video {
         width: 100%;
+        height: 0;
+        padding-bottom: 54%;
+    }
+    .section__youtube__item__video iframe {
+        position: absolute;
         top: 0;
         left: 0;
-        height: calc(100% - 90px);
-        position: absolute;
-        display: none;
-    }
-    .section__youtube__item.playing .section__youtube__item__video {
-        display: block;
-    }
-    .section__youtube__item__preview {
         width: 100%;
-        padding-bottom: 54%;
-        height: 0;
+        height: 100%;
     }
-    .section__youtube__item__preview:after {
+    .section__youtube__item__video:after {
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
         content: '';
-        pointer-events: none;
         background: url("<?= get_template_directory_uri(); ?>/new/images/icn_youtube_custom_play.svg") no-repeat center center;
+        z-index: 10;
     }
-    
-    .section__youtube__item__preview img {
-        display: block;
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 20px;
-        object-fit: cover;
-        object-position: center center;
-        /* opacity: 0.03; */
+    .section__youtube__item.playing
+        .section__youtube__item__video:after {
+            display: none;
     }
 
     .section__youtube__items .slides li h3 {
@@ -234,12 +224,7 @@
             line-height: 28px;
         }
 
-        .section__youtube__item__video {
-            height: calc(100% - 58px);
-        }
-
         .section__youtube__items {
-            /* margin: 10px 0px 20px; */
             padding-bottom: 1px;
         }
 
@@ -269,6 +254,10 @@
 
 <script>
 $(document).ready(() => {
+    // const beforeYoutubeSlide = function () {
+    //     $('.section__youtube__item').find('iframe').attr('src', '');
+    //     $('.section__youtube__item').removeClass('playing');
+    // };
     $('.section__youtube__items').flexslider({
         animation: "slide",
         animationLoop: true,
@@ -279,26 +268,18 @@ $(document).ready(() => {
         slideshowSpeed: 2000,
         prevText: '',
         nextText: '',
-        controlNav: false
+        controlNav: false,
+        // before: beforeYoutubeSlide
     });
-    // $(document).on('click', '[youtube__video__code]', e => {
-    //     console.log (111);
-    // })
     $('.section__youtube__item').on('click', e => {
-        console.log (111);
         try {
-            const code = $(e.currentTarget).attr('video__code');
             const iframe = $(e.currentTarget).find('iframe');
-            $(e.currentTarget).addClass('playing');
-            setTimeout (() => {
-                iframe.attr('src', "https://youtube.com/embed/" + code + '');
-            },200);
+            const src = iframe.attr('src');
+            const code = src.split('/embed/')[1].split('?')[0];
+            iframe.attr('src', 'https://youtube.com/embed/' + code + '?autoplay=1&mute=1');
+            $(e.target).closest('.section__youtube__item').addClass('playing');
         } catch (e) {};
     });
-    $('.section__youtube').on ('click', ' .flex-direction-nav a', e => {
-        $('.section__youtube__item').find('iframe').attr('src', '');
-        $('.section__youtube__item').removeClass('playing');
-    })
 });
 </script>
 

@@ -6,7 +6,8 @@
  */
 define( 'WP_DEBUG', true );
 $NEW_SITE = true;
-$_POST['DEV_MODE'] = (strpos($_SERVER['REMOTE_ADDR'], '252.111.18') == 3);
+//$_POST['DEV_MODE'] = (strpos($_SERVER['REMOTE_ADDR'], '99.54.92') == 3);
+//$_POST['DEV_MODE'] = (strpos($_SERVER['REMOTE_ADDR'], '99.54.92') == 3);
 
 // SVG Support
 
