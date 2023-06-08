@@ -14,7 +14,7 @@
 ?>
 
 <?php 
-if ($_GET['DEV']=='1') {
+// if ($_GET['DEV']=='1') {
 
     get_template_part ('new/section', 'welcome__part1');
 
@@ -22,9 +22,9 @@ if ($_GET['DEV']=='1') {
 
     get_template_part ('new/section', 'welcome__part2');
  
-} else {
-    get_template_part ('new/section', 'welcome');
-}
+// } else {
+    // get_template_part ('new/section', 'welcome');
+// }
 ?>
 <?php 
     get_template_part ('new/section', 'feedback');

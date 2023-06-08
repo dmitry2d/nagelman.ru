@@ -237,7 +237,7 @@
         }
         .section__youtube__item-title {
             margin: 20px auto 0;
-            height: 40px;
+            height: 2em;
         }
         .section__youtube__items .slides li h3 {
             font-size: 24px;
@@ -278,6 +278,9 @@
             transform: translateX(-40%) scaleX(-1);
         }
         
+    }
+
+    @media screen and (max-width: 600px) {
     }
 
 </style>

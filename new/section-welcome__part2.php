@@ -8,7 +8,7 @@
 */
 ?>
 
-<section class="section__welcome">
+<section class="section__welcome section__welcome__part2">
     
     <div class="section__welcome__container">
             
@@ -61,5 +61,10 @@
 </section>
 
 <!--  Styles and scripts are in Welcome Part 1 Section File -->
-<style></style>
+<style>
+    .section__welcome__part2,
+    .section__welcome__container {
+        padding-top: 20px;
+    }
+</style>
 <script></script>
