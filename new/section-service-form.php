@@ -101,6 +101,21 @@
         padding: 0;
     }
 
+    .service-form__browser,
+    .service-form__browser *{
+        margin: 0;
+        padding: 0 0 40px;
+        text-align: left;
+        font-size: 15px;
+        line-height: 18px;
+        position: relative;
+        color: rgba(var(--color-highlight),1);
+    }
+    .service-form__browser a {
+        color: rgba(var(--color-highlight),1);
+        text-decoration: underline;
+    }
+
     @media screen and (max-width: 800px) {
         .form-visible.pokaz {
             background: white;
