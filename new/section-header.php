@@ -130,7 +130,8 @@
         }
         body.mobile_menu_open .section__header__container  {
             pointer-events: all;
-            overflow-y: auto;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
         }
         .section__header__container * {
             pointer-events: all;

@@ -14,17 +14,19 @@
 ?>
 
 <?php 
-// if ($_GET['DEV']=='1') {
+
 
     get_template_part ('new/section', 'welcome__part1');
+
+    // if ($_GET['dev']=='1') {
+
+        get_template_part ('new/section', 'social-set');
+     
+    // }
 
     get_template_part ('new/section', 'youtube');
 
     get_template_part ('new/section', 'welcome__part2');
- 
-// } else {
-    // get_template_part ('new/section', 'welcome');
-// }
 ?>
 <?php 
     get_template_part ('new/section', 'feedback');
@@ -41,5 +43,6 @@
 <?php 
     get_template_part ('new/section', 'footer');
 ?>
+
 
 

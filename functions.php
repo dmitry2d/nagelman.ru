@@ -7,26 +7,6 @@
 define( 'WP_DEBUG', true );
 $NEW_SITE = true;
 //$_POST['DEV_MODE'] = (strpos($_SERVER['REMOTE_ADDR'], '99.54.92') == 3);
-//$_POST['DEV_MODE'] = (strpos($_SERVER['REMOTE_ADDR'], '99.54.92') == 3);
-
-// SVG Support
-
-function cc_mime_types($mimes) {
-   $mimes['svg'] = 'image/svg+xml';
-   return $mimes;
- }
- add_filter('upload_mimes', 'cc_mime_types');
- function fix_svg_thumb_display() {
-   echo '
-   <style>
-   td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail { 
-      width: 100% !important; 
-      height: auto !important; 
-   }
-   </style>
-   ';
- }
- add_action('admin_head', 'fix_svg_thumb_display');
 
 
  
@@ -948,6 +928,30 @@ function SearchFilter($query) {
 add_filter('pre_get_posts','SearchFilter');
 
 add_action( 'wp_footer', 'mycustom_wp_footer' );
+
+
+
+// SVG Support
+
+function cc_mime_types($mimes) {
+   $mimes['svg'] = 'image/svg+xml';
+   return $mimes;
+ }
+ add_filter('upload_mimes', 'cc_mime_types');
+ function fix_svg_thumb_display() {
+   echo '
+   <style>
+   td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail { 
+      width: 100% !important; 
+      height: auto !important; 
+   }
+   </style>
+   ';
+ }
+ add_action('admin_head', 'fix_svg_thumb_display');
+
+
+
  
 function mycustom_wp_footer() {
 ?>
