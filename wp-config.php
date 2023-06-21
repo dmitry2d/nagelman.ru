@@ -78,7 +78,7 @@ $table_prefix  = 'psh_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+
 
 define('WP_POST_REVISIONS', 1);
 

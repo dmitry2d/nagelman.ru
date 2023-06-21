@@ -5,22 +5,41 @@
 */
 ?>
 
+
+<?php
+
+    /*
+    * Getting social item links from 'Social buttons' array. 
+    */
+    $social_buttons = get_field('social-set__items',2);
+    $social_links = array(
+        'vk' => '',
+        'tg' => '',
+        'skype' => 'skype:nagelman3?call',
+        'wa' => '',
+        'dz' => ''
+    );
+    foreach ($social_buttons as $item) {
+        if ($item['pseudo']) {
+            $social_links [$item['pseudo']] = $item ['link'];
+        }
+    };
+
+?>
+
 <div class="section__header__social">
-    <a onclick="ym('47499343', 'reachGoal', 'click-on-telegram-top');" rel="nofollow" href="https://vk.com/club212098865" title="Мой Telegram">
+    <a onclick="ym('47499343', 'reachGoal', 'click-on-telegram-top');" rel="nofollow" href="<?= $social_links['vk']?>" title="Мой Telegram">
         <img src="<?= get_template_directory_uri(); ?>/new/images/vk.svg">
     </a>  
-    <a onclick="ym('47499343', 'reachGoal', 'click-on-telegram-top');" rel="nofollow" href="tg://resolve?domain=ElenaNagelman" title="Мой Telegram">
+    <a onclick="ym('47499343', 'reachGoal', 'click-on-telegram-top');" rel="nofollow" href="<?= $social_links['tg']?>" title="Мой Telegram">
         <img src="<?= get_template_directory_uri(); ?>/new/images/telegram.svg">
     </a>  
-    <a onclick="ym('47499343', 'reachGoal', 'click-on-skype-top');" rel="nofollow" href="skype:nagelman3?call" title="Мой Skype">
+    <a onclick="ym('47499343', 'reachGoal', 'click-on-skype-top');" rel="nofollow" href="<?= $social_links['skype']?>" title="Мой Skype">
         <img src="<?= get_template_directory_uri(); ?>/new/images/skype.svg">
     </a>  
-    <a href="https://dzen.ru/elenanagelman?share_to=telegram" title="">
+    <a href="<?= $social_links['dz']?>" title="">
         <img src="<?= get_template_directory_uri(); ?>/new/images/dz.svg">
     </a>  
-    <!-- <a onclick="ym('47499343', 'reachGoal', 'click-on-whatsapp-top');" rel="nofollow" href="https://wa.me/79210205165" target="_blank" title="Мой Whatsapp">
-        <img src="<?php //echo get_template_directory_uri(); ?>/new/images/whatsapp.svg">
-    </a>   -->
 </div>
 
 <style>
