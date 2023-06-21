@@ -6,17 +6,19 @@
 ?>
 
 <div class="section__header__menu">
+    <div class="section__header__menu__items-wrapper">
 
-    <?php /* Primary navigation */
-        wp_nav_menu( array(
-        'menu' => 'header_menu',
-        'depth' => 2,
-        'container' => false,
-        'menu_class' => 'section__header__menu__items',
-        'walker' => new wp_bootstrap_navwalker())
-        );
-    ?>
+        <?php /* Primary navigation */
+            wp_nav_menu( array(
+            'menu' => 'header_menu',
+            'depth' => 2,
+            'container' => false,
+            'menu_class' => 'section__header__menu__items',
+            'walker' => new wp_bootstrap_navwalker())
+            );
+        ?>
 
+    </div>
 </div>
 
 <style>
@@ -72,6 +74,7 @@
         background: #ffffff20;
     }   
     @media screen and (max-width: 800px) {
+
         .section__header__menu {
             display: block;
             width: calc(100% - 80px);
@@ -86,6 +89,8 @@
             min-width: unset;
             border-top: 10px solid #f5f5f5;
         }
+
+
         body.mobile_menu_open .section__header__menu {
             left: 0;
         }

@@ -69,31 +69,35 @@
 
             <div class="section__header__container">
 
-                <!-- Site Title -->
-                             
-                <?php
-                    get_template_part ('new/section', 'header__site-title');
-                ?>
+                <div class="section__header__wrapper">
 
-                <!-- Consult Form Button -->
-                <?php
-                    get_template_part ('new/section', 'header__about-whatsapp');
-                ?>
+                    <!-- Site Title -->
+                                
+                    <?php
+                        get_template_part ('new/section', 'header__site-title');
+                    ?>
 
-                <!-- Social Links -->
-                <?php
-                    get_template_part ('new/section', 'header__socials');
-                ?>
+                    <!-- Consult Form Button -->
+                    <?php
+                        get_template_part ('new/section', 'header__about-whatsapp');
+                    ?>
 
-                <!-- Phone Section -->
-                <?php
-                    get_template_part ('new/section', 'header__phone');
-                ?>
+                    <!-- Social Links -->
+                    <?php
+                        get_template_part ('new/section', 'header__socials');
+                    ?>
 
-                <!-- Menu Section  -->
-                <?php
-                    get_template_part ('new/section', 'header__menu');
-                ?>
+                    <!-- Phone Section -->
+                    <?php
+                        get_template_part ('new/section', 'header__phone');
+                    ?>
+
+                    <!-- Menu Section  -->
+                    <?php
+                        get_template_part ('new/section', 'header__menu');
+                    ?>
+    
+                </div>
 
             </div>
 
@@ -108,33 +112,40 @@
         width: 100%;
         max-width: var(--desktop-max-width);
         margin: 0 auto;
+        padding: 40px 20px 0;
+        
+    }
+    .section__header__wrapper {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        padding: 40px 20px 0;
-        
     }
     @media screen and (max-width: 800px) {
         .section__header__container {
             position: fixed;
-            flex-wrap: nowrap;
             left: 0;
             top: 0;
             width: 100%;
             height: calc(100vh);
             z-index: 1000;
             padding: 0;
-            flex-direction: column;
-            align-items: flex-start;
             pointer-events: none;
-        }
-        body.mobile_menu_open .section__header__container  {
-            pointer-events: all;
-            overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
+            height: 100%;
+        }
+        .section__header__wrapper {
+            -webkit-overflow-scrolling: touch;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            flex-direction: column;
+            pointer-events: none;
         }
         .section__header__container * {
             pointer-events: all;
+        }
+        body.mobile_menu_open .section__header__container {
+            pointer-events: all;
+            overflow: scroll;
         }
     }
 </style>
