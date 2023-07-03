@@ -49,6 +49,9 @@
         margin: 0!important;
         padding: 0;
     }
+    .template-page__data {
+        flex-grow: 1;
+    }
 
     #wpadminbar {
         display: none;
