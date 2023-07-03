@@ -13,7 +13,7 @@
         href="https://wa.me/79210205165"
         target="_blank"
         title="Мой Whatsapp">
-        Написать в Whatsapp
+        Записаться онлайн
     </a>  
 </div>
 
@@ -24,6 +24,8 @@
         flex-grow: 1;
     }
     .section__footer__whatsapp-link a {
+        width: 100%;
+        text-align: center;
         font-weight: 400;
         font-size: 15px;
         line-height: 24px;

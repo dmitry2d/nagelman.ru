@@ -7,24 +7,7 @@
 
 
 <?php
-
-    /*
-    * Getting social item links from 'Social buttons' array. 
-    */
-    $social_buttons = get_field('social-set__items',2);
-    $social_links = array(
-        'vk' => '',
-        'tg' => '',
-        'skype' => 'skype:nagelman3?call',
-        'wa' => '',
-        'dz' => ''
-    );
-    foreach ($social_buttons as $item) {
-        if ($item['pseudo']) {
-            $social_links [$item['pseudo']] = $item ['link'];
-        }
-    };
-
+    $social_links = $GLOBALS['social_links'];
 ?>
 
 <div class="section__header__social">
@@ -45,7 +28,7 @@
 <style>
     .section__header__social {
         display: flex;
-        padding: 0 10px;
+        padding: 0 20px;
     }
     .section__header__social  a {
         text-decoration: none;

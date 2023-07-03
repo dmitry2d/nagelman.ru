@@ -19,7 +19,12 @@
         
         <div class="section__footer__bottom__search">
             <a href="">
-                <img src="<?= get_template_directory_uri(); ?>/new/images/icn_search_bottom.svg">
+                <img src="<?= get_template_directory_uri(); ?>/new/images/search_button.svg">
+            </a>
+        </div>
+        <div class="section__footer__bottom__call">
+            <a onclick="ym('47499343', 'reachGoal', 'click-on-phone-top');" href="tel:<?php echo get_theme_mod('main_phone', 'Телефон'); ?>">
+                <img src="<?= get_template_directory_uri(); ?>/new/images/phone.svg">
             </a>
         </div>
         <div class="section__footer__bottom__go-up">
@@ -83,20 +88,25 @@
         cursor: pointer;
         background: none;
     }
+    .section__footer__bottom__call a,
     .section__footer__bottom__search a {
         display: flex;
         width: 50px;
         height: 50px;
         align-items: center;
         justify-content: center;
+    }
+    .section__footer__bottom__call a {
         border: 2px solid rgba(var(--color-highlight),1);
         border-radius: 50px;
-        margin: 0 5px;
     }
-    .section__footer__bottom__search img {
-        width: 24px;
-        height: 24px;
+    .section__footer__bottom__call {
+        padding-right: 10px;
     }
+    .section__footer__bottom__call img {
+        width: 18px;
+    }
+
     
     /* Bottom Widget Sidebar */
 

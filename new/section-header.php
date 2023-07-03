@@ -3,6 +3,27 @@
 /*
 * Section Header
 */
+
+    /*
+    * Getting social item links from 'Social buttons' array. 
+    */
+    
+    $social_buttons = get_field('social-set__items',2);
+    $social_links = array(
+        'vk' => '',
+        'tg' => '',
+        'skype' => 'skype:nagelman3?call',
+        'wa' => '',
+        'dz' => ''
+    );
+    foreach ($social_buttons as $item) {
+        if ($item['pseudo']) {
+            $social_links [$item['pseudo']] = $item ['link'];
+        }
+    };
+    $GLOBALS['social_links'] = $social_links;
+
+
 ?>
 
 <html class="no-js" lang="ru-RU">
@@ -140,7 +161,7 @@
             flex-direction: column;
             pointer-events: none;
         }
-        .section__header__container * {
+        .section__header__wrapper * {
             pointer-events: all;
         }
         body.mobile_menu_open .section__header__container {

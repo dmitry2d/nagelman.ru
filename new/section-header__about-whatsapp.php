@@ -18,7 +18,7 @@
         href="https://wa.me/79210205165"
         target="_blank"
         title="Мой Whatsapp">
-        Написать в Whatsapp
+        Записаться онлайн
     </a>  
 </div>
 

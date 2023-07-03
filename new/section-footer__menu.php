@@ -1,23 +1,6 @@
 
 <?php
-
-    /*
-    * Getting social item links from 'Social buttons' array. 
-    */
-    $social_buttons = get_field('social-set__items',2);
-    $social_links = array(
-        'vk' => '',
-        'tg' => '',
-        'skype' => 'skype:nagelman3?call',
-        'wa' => '',
-        'dz' => ''
-    );
-    foreach ($social_buttons as $item) {
-        if ($item['pseudo']) {
-            $social_links [$item['pseudo']] = $item ['link'];
-        }
-    };
-
+    $social_links = $GLOBALS['social_links'];
 ?>
 
 <mob>
