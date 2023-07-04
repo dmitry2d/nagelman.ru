@@ -30,7 +30,7 @@
         </div>
         <div class="podcast__player__active__title">&nbsp;</div>
     </div>
-    <div class="podcast__player__previews">
+    <div class="podcast__player__previews scrollbar">
         <div class="podcast__player__previews__wrapper">
             <div class="podcast__player__items">
                 <?php
@@ -96,15 +96,20 @@
         padding: 20px;
         flex-grow: 1;
     }
+
     .podcast__player__previews {
         padding: 20px;
         overflow: auto;
         width: 30%;
         background: #EEECE9;
+        
     }
     .podcast__player__previews__wrapper {
         position: absolute;
-        inset: 12px 0;
+        top: 22px;
+        left: 0;
+        width: 100%;
+        padding-bottom: 20px;
     }
     .podcast__player__item {
         display: flex;
@@ -114,7 +119,7 @@
     }
     .podcast__player__item:hover,
     .podcast__player__item.active {
-        background: #DDD7D2;
+        background-color: #DDD7D2;
     }
     .podcast__player__item__left {
         min-width: 45%;
@@ -125,12 +130,26 @@
         content: '';
         inset: 0;
         background: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play.svg") no-repeat center 68%;
-        background-size: 40%;
+        background-size: 50px;
         pointer-events: none;
-        transition: background-image 1s;
+        transition: opacity 0.3s ease-in;
+    }
+    .podcast__player__item__left:before {
+        position: absolute;
+        content: '';
+        inset: 0;
+        background: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play_active.svg") no-repeat center 68%;
+        background-size: 50px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease-in;
+        z-index: 100;
     }
     .podcast__player__item:hover .podcast__player__item__left:after {
-        background-image: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play_active.svg");
+        opacity: 0;
+    }
+    .podcast__player__item:hover .podcast__player__item__left:before {
+        opacity: 1;
     }
 
 
@@ -145,10 +164,10 @@
     .podcast__player__item__left img {
         position: absolute;
         display: block;
-        top: 0;
+        top: -20%;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 110%;
+        height: 140%;
         object-fit: cover;
     }
     .podcast__player__item__right {
@@ -161,7 +180,7 @@
         overflow: hidden;
         color: #4f4f4f;
         font-size: 15px;
-        font-weight: bold;
+        font-weight: 500;
         line-height: 1;
         height: 2.1em;
     }
@@ -174,8 +193,9 @@
         color: white;
         font-size: 14px;
         font-weight: 400;
-        padding: 1px;
-        width: 60px;
+        padding: 2px 0 1px;
+        line-height: 17px;
+        width: 49px;
         text-align: center;
     }
     .podcast__player__item__duration:empty {
@@ -224,19 +244,54 @@
         content: '';
         inset: 0;
         background: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play.svg") no-repeat center 53%;
-        background-size: 20%;
+        background-size: 120px;
         pointer-events: none;
-        transition: 0.3s;
+        transition: opacity 0.3s;
+    }
+    .podcast__player__active__preview:before {
+        position: absolute;
+        content: '';
+        inset: 0;
+        background: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play_active.svg") no-repeat center 53%;
+        background-size: 120px;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        opacity: 0;
+        z-index: 100;
     }
     .podcast__player__active__preview:hover:after {
-        background-image: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play_active.svg");
+        opacity: 0;
+    }
+    .podcast__player__active__preview:hover:before {
+        opacity: 1;
     }
     .podcast__player__active__title {
         font-size: 24px;
         padding: 20px;
-        /* padding-bottom: ; */
+        padding-top: 30px;
+        font-weight: 500;
         text-align: center;
     }
+
+
+    .scrollbar::-webkit-scrollbar {
+        width: 50px;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        background-color: rgba(255,255,255,0.5);
+        border-radius: 1000px;
+        background-clip: padding-box;
+        border: 20px solid rgba(0,0,0,0);
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(161,142,128,0.4);
+        border-radius: 1000px;
+        background-clip: padding-box;
+        border: 20px solid rgba(0,0,0,0);
+    }
+
     @media screen and (max-width: 800px) {
         .podcast__player {
             flex-direction: column;
@@ -249,8 +304,15 @@
             width: 100%;
         }
         .podcast__player__previews {
-            padding: 5px 0;
+            padding: 10px 0;
             overflow: unset;
+        }
+        .podcast__player__previews__wrapper {
+            padding: 0;
+        }
+        .podcast__player__active__title {
+            padding: 20px 0;
+            padding-top: 30px;
         }
     }
 </style>
@@ -288,8 +350,7 @@
                 'onReady': onBigPlayerReady,
                 // 'onStateChange': onPlayerStateChange
             },
-            host: 'https://www.youtube.com',
-            origin: 'https://elenanagelman.ru',
+            origin: window.location.href,
             autoplay: '0'
         });
         // Превью картинка
@@ -307,13 +368,12 @@
                     'onReady': onPreviewPlayerReady,
                     // 'onStateChange': onPlayerStateChange
                 },
-                host: 'https://www.youtube.com',
-                origin: 'https://elenanagelman.ru',
+                origin: window.location.href,
                 autoplay: '0'
             });
             player.meta = {
                 index: index
-            }
+            };
             podcastData.previewPlayers.push(player);
         };
     }

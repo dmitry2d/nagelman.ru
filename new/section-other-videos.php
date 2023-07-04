@@ -19,9 +19,14 @@ $other_video_list = get_field('other-video-list', 2);
 
         ?>
             <div class="other-videos__item">
-                <a href="https://www.youtube.com/watch?v=<?=$video['id']?>" target="_blank">
-                    <img src="https://i.ytimg.com/vi/<?=$video['id']?>/hqdefault.jpg">
-                </a>
+                <div class="other-videos__item__preview">
+                    <a href="https://www.youtube.com/watch?v=<?=$video['id']?>" target="_blank">
+                        <img src="https://i.ytimg.com/vi/<?=$video['id']?>/hqdefault.jpg">
+                    </a>
+                </div>
+                <div class="other-videos__item__title">
+                    <?=$video['title']?>
+                </div>
             </div>
         <?php
                 }
@@ -44,20 +49,20 @@ $other_video_list = get_field('other-video-list', 2);
         text-align: center;
     }
     .other-videos__items {
-        margin: 0 0 0 20px;
+        margin: 0;
         display: flex;
-        margin: 50px -10px;
+        margin: 50px -10px 20px;
         justify-content: center;
     }
     .other-videos__item {
-        min-width: 20%;
+        flex-basis: 10%;
         flex-grow: 1;
         margin: 10px;
-        overflow: hidden;
-        border-radius: 10px;
-
+        
     }
     .other-videos__item a {
+        overflow: hidden;
+        border-radius: 10px;
         display: block;
         height: 0;
         width: 100%;
@@ -83,28 +88,24 @@ $other_video_list = get_field('other-video-list', 2);
         color: white;
         border-radius: 100px;
     }
-    .other-videos__item:after {
-        position: absolute;
-        content: '';
-        inset: 0;
-        background: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play.svg") no-repeat center 68%;
-        background-size: 40%;
-        pointer-events: none;
-        transition: background-image 1s;
-    }
-    .other-videos__item:hover:after {
-        background-image: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play_active.svg");
+    .other-videos__item__title {
+        padding: 20px 0;
+        line-height: 1.15;
+        font-size: 15px;
+        font-weight: 500;
+
     }
 
     @media screen and (max-width: 800px) {
         .other-videos__items {
             flex-direction: column;
             align-items: center;
+            padding: 0 10vw;
         }
         
         .other-videos__item {
-            max-width: 350px;
-            min-width: 250px;
+            width: 100%;
+            max-width: 400px;
             margin-bottom: 30px;
         }
 
