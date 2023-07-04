@@ -49,7 +49,7 @@
         margin: 0!important;
         padding: 0;
     }
-    .template-page__data {
+    .template__page__data {
         flex-grow: 1;
     }
 
@@ -251,4 +251,7 @@
         });
     });
 
+
 </script>
+
+
