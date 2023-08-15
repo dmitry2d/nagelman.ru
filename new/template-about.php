@@ -39,6 +39,12 @@
 
         <?php the_content(); ?>
 
+        <?php
+            // if(isset($_GET['dev'])):
+                get_template_part ('new/section', 'diploma');
+            // endif;
+        ?>
+
     </div>
 
 </div>
