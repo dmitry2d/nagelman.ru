@@ -22,6 +22,7 @@
                             echo '<li><div class="section__youtube__item">';
                                 echo '<div class="section__youtube__item__preview"><img src=' . $row['img'] . '></div>';
                                 echo '<div class="section__youtube__item__play-button"></div>';
+                                echo '<div class="section__youtube__item__play-button__hover"></div>';
                                 echo '<div class="section__youtube__item__video" video-id="' .  $row['video_id'] . '">';
                                     // echo '<iframe width="100%" height="100%" src="https://youtube.com/embed/' . $row['video_id'] . '?showinfo=0&autohide=1&controls=0" frameborder="0" allow="autoplay" allowfullscreen></iframe>';
                                 echo '</div>';
@@ -79,6 +80,7 @@
         width: 100%;
         max-width: 800px;
         margin: 0 auto;
+        cursor: pointer;
     }
     .section__youtube__item__preview {
         position: absolute;
@@ -117,9 +119,35 @@
         content: '';
         background: url("<?= get_template_directory_uri(); ?>/new/images/icn_youtube_custom_play.svg") no-repeat center center;
         z-index: 10;
+        opacity: 1;
+        transition: opacity 0.3s;
+    }
+    .section__youtube__item__play-button__hover {
+        position: absolute;
+        top: 0;
+        bottom: 80px;
+        left: 30px;
+        right: 30px;
+        content: '';
+        background: url("<?= get_template_directory_uri(); ?>/new/images/icn_youtube_custom_play_hover.svg") no-repeat center center;
+        z-index: 10;
+        opacity: 0;
+        transition: opacity 0.7s;
+    }
+    .section__youtube__item:hover .section__youtube__item__play-button {
+        opacity: 0;
+        transition: opacity 0.7s;
+    }
+    .section__youtube__item:hover .section__youtube__item__play-button__hover {
+        opacity: 1;
+        transition: opacity 0.3s;
     }
     .section__youtube__item.playing
         .section__youtube__item__play-button {
+            display: none;
+    }
+    .section__youtube__item.playing
+        .section__youtube__item__play-button__hover {
             display: none;
     }
 

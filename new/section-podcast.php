@@ -131,6 +131,7 @@
         inset: 0;
         background: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play.svg") no-repeat center 68%;
         background-size: 50px;
+        background-position: center calc(50% + 5px);
         pointer-events: none;
         transition: opacity 0.3s ease-in;
     }
@@ -140,6 +141,7 @@
         inset: 0;
         background: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play_active.svg") no-repeat center 68%;
         background-size: 50px;
+        background-position: center calc(50% + 5px);
         pointer-events: none;
         opacity: 0;
         transition: opacity 0.3s ease-in;
@@ -245,6 +247,7 @@
         inset: 0;
         background: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play.svg") no-repeat center 53%;
         background-size: 120px;
+        background-position: center calc(50% + 5px);
         pointer-events: none;
         transition: opacity 0.3s;
     }
@@ -254,6 +257,7 @@
         inset: 0;
         background: url("<?= get_template_directory_uri(); ?>/new/images/podcast_play_active.svg") no-repeat center 53%;
         background-size: 120px;
+        background-position: center calc(50% + 5px);
         pointer-events: none;
         transition: opacity 0.3s;
         opacity: 0;

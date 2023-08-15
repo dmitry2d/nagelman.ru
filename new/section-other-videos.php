@@ -108,6 +108,14 @@ $other_video_list = get_field('other-video-list', 2);
             max-width: 400px;
             margin-bottom: 30px;
         }
+        .other-videos__link {
+            margin: 0 -10px;
+        }
+        .other-videos__link a {
+            display: block;
+            text-align: center;
+            margin: 0 10vw;
+        }
 
 </style>
 
