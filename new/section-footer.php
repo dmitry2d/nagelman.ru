@@ -23,6 +23,19 @@
     <!-- Lightbox -->
     <script src="<?= get_template_directory_uri();?>/new/vendor/lightbox/js/lightbox.js"></script>
     <link href="<?= get_template_directory_uri();?>/new/vendor/lightbox/css/lightbox.css" rel="stylesheet" />
+    <script>
+        function setLightboxHeight () {
+            lightbox.option ({
+                fitImagesInViewport: true,
+                maxHeight: window.innerHeight*0.8
+            });
+        };
+        $(window).resize(() => {
+            setLightboxHeight();
+        });
+        setLightboxHeight ();
+
+    </script>
 
     <!-- Modal Windows  -->
     <?php

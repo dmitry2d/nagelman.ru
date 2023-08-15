@@ -106,7 +106,6 @@
 
 <script>
     $(document).ready(() => {
-
     });
 </script>
 
