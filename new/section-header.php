@@ -1,13 +1,10 @@
-
 <?php
-/*
-* Section Header
-*/
-
+    /*
+    * Section Header
+    */
     /*
     * Getting social item links from 'Social buttons' array. 
     */
-    
     $social_buttons = get_field('social-set__items',2);
     $social_links = array(
         'vk' => '',
@@ -22,10 +19,7 @@
         }
     };
     $GLOBALS['social_links'] = $social_links;
-
-
 ?>
-
 <html class="no-js" lang="ru-RU">
 
     <head>
@@ -34,7 +28,6 @@
         <meta name=”format-detection” content=”telephone=no”>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name='wmail-verification' content='9b2a6a897118713b8712be1fc92b67fc' />
-        
         <meta name="yandex-verification" content="9022ea13443a9e20" />
         <title><?php wp_title(); ?></title>
         <?php wp_head(); ?>
