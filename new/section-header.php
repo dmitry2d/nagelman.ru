@@ -34,7 +34,8 @@
         <meta name=”format-detection” content=”telephone=no”>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name='wmail-verification' content='9b2a6a897118713b8712be1fc92b67fc' />
-        <meta name="yandex-verification" content="4d883fdcb2aeb93d" />
+        
+        <meta name="yandex-verification" content="9022ea13443a9e20" />
         <title><?php wp_title(); ?></title>
         <?php wp_head(); ?>
 
