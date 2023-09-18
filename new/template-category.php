@@ -25,11 +25,16 @@
                 get_template_part('new/section', 'category');
             ?>
         </div>
+
+        <?php if ($cat != 7) { ?>
         <div class="template__page__sidebar">
             <?php
                 get_template_part('new/section', 'sidebar');
             ?>
         </div>
+        <?php } ?>
+
+
     </div>
 
 </div>

@@ -5,6 +5,7 @@
 * Section category
 */
 ?>
+
     
 <div class="section__category">
 
@@ -21,10 +22,22 @@
 				} else {
 				    $image[0] = '';
 				}
-
-                
-
         ?>
+
+
+
+            <?php
+                // If news    
+                if ($cat == 7) {
+
+                    // Print one news item
+                    get_template_part ('new/section', 'news-item');
+                
+                } else {
+
+            ?>
+
+
 
                 <div class="section__category__item">
 
@@ -78,10 +91,15 @@
                     
                 </div>
 
-    <?php 
+            <?php
+                // If news else end
+                };
+            ?>
+
+        <?php 
+            // While have posts end -->
             endwhile; 
-        endif;
-        
+            endif;
         ?>
 
 </div>
