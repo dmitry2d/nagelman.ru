@@ -8,7 +8,6 @@ define('WP_DEBUG', true);
 // define( 'WP_DEBUG_DISPLAY', true );
 // @ini_set('display_errors', 1);
 $NEW_SITE = true;
-//$_POST['DEV_MODE'] = (strpos($_SERVER['REMOTE_ADDR'], '99.54.92') == 3);
 
 
  
