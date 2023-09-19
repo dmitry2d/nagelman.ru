@@ -10,7 +10,39 @@ define('WP_DEBUG', true);
 $NEW_SITE = true;
 
 
+/**
+ * Отдельный пермалинк для новостей вида /news/ID
+ */
+// add_action('generate_rewrite_rules', 'custom_rewrite_rules');
+// function custom_rewrite_rules( $wp_rewrite ) {
+//    $feed_rules = array(
+//       '^news/([^/]+)/?' => '/post.php?post=1201',
+//    );
+//    $wp_rewrite->rules = $feed_rules + $wp_rewrite->rules;
+//    return $wp_rewrite->rules;
+// }
+add_filter( 'query_vars', 'my_query_vars' );
+function my_query_vars( $vars ) {
+    $vars[] = 'news_item';
+    return $vars;
+};
+add_action('init', function()
+{
+   add_rewrite_rule('^news/([^/]+)/?$', 'index.php?news_item=$matches[1]', 'top');
+}, 10, 0);
+
+// add_filter( 'rewrite_rules_array', function( $rules ){
+//    // $rule = [ '^news/([^/]+)/?' => 'index.php?name=$matches[1]' ];
+//    $rule = [ '^news/([^/]+)/?' => '/keys' ];
+//    return array_merge( $rule, $rules);
+// });
  
+// function year_rewrite() {
+//    // add_rewrite_rule('^news/([0-9]+)/?', 'single.php?year=$matches[1]',    'top');
+//    // add_rewrite_rule('^news/([0-9]+)/?', get_permalink($matches[1]),    'top');
+//  }
+//  add_action('init', 'year_rewrite');
+
 
 /**
 * загружаемые скрипты и стили

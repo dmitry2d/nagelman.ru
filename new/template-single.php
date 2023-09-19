@@ -34,6 +34,7 @@
                 }
             ?>
 
+
             <?php endwhile; endif; ?>
         </div>
         <div class="template__page__sidebar">

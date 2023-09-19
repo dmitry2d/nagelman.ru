@@ -249,7 +249,11 @@
 
     $(document).ready(() => {
         $(document).on('click', '.content__spoiler', e => {
-            $(e.currentTarget).toggleClass('open');
+            if ($(e.target).closest('.content__spoiler__safe').length){
+                // If clicked on "safe" class - do not use spoiler script
+            } else {
+                $(e.currentTarget).toggleClass('open');
+            };
         });
     });
 

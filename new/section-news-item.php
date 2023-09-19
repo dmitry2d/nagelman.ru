@@ -8,9 +8,9 @@
         </div>
         <div class="content__spoiler__text">
             <?= get_the_content(); ?>
-            <div class="news__item__links">
+            <div class="news__item__links content__spoiler__safe">
                 <div class="news__item__details">
-                    <a href="">Подробнее</a>
+                    <a href="/news/<?=get_the_ID();?>">Подробнее</a>
                 </div>
                 <a href="" class="news__item__share">
                     Поделиться <img src="<?= get_template_directory_uri(); ?>/new/images/icn_share.svg">
@@ -19,6 +19,7 @@
         </div>
     </div>
 </div>
+
 
 <style>
     .news__item .content__spoiler__title {

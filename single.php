@@ -3,10 +3,10 @@
 /**
  * New Site Mode
  */
-if ($NEW_SITE){
+// if ($NEW_SITE){
 	get_template_part('new/template', 'single');
 	exit();
-}
+// }
 ?>
 
 
