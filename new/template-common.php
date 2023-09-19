@@ -161,7 +161,7 @@
     .content__spoiler {
         border: 1px solid rgba(var(--color-heading),0.21);
         border-left: none;border-right: none;
-        padding: 10px 0;
+        padding: 10px 0 0;
     }
     .content__spoiler:before {
         content: '';
@@ -193,9 +193,11 @@
         max-height: 0;
         transition: 0.2s;
         overflow: hidden;
+        margin: 0 0 10px 0;
     }
     .content__spoiler.open .content__spoiler__title + .content__spoiler__text {
-        margin-top: 20px;
+        /* margin-top: 20px; */
+        padding: 20px 0;
         max-height: 5000px;
     }
     .content__spoiler.open:before {
