@@ -160,7 +160,9 @@
 
     .content__spoiler {
         border: 1px solid rgba(var(--color-heading),0.21);
-        border-left: none;border-right: none;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
         padding: 10px 0;
     }
     .content__spoiler:before {

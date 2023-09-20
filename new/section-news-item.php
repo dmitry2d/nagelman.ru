@@ -8,7 +8,7 @@
         </div>
         <div class="content__spoiler__wrapper">
             <div class="content__spoiler__text">
-                <?= get_the_content(); ?>
+                <?php the_content(); ?>
                 <div class="news__item__links content__spoiler__safe">
                     <div class="news__item__details">
                         <a href="/news/<?=get_the_ID();?>">Подробнее</a>
@@ -24,6 +24,7 @@
 
 
 <style>
+
     .news__item .content__spoiler__title {
         font-weight: 500;
         flex-wrap: wrap;

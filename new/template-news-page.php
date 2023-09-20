@@ -94,6 +94,7 @@
     .news__page .template_page__data,
     .news__page .template_page__data p {
         font-size: 18px;
+        font-weight: 500;
     }
     @media screen and (max-width: 800px) {
         .news__page__share,

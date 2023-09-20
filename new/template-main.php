@@ -32,6 +32,12 @@
     get_template_part ('new/section', 'recent');
 ?>
 
+<?php
+    if (isset($_GET['dev'])) {
+        get_template_part('new/section', 'news-mainpage');
+    };
+?>
+
 <?php 
     get_template_part ('new/section', 'quick-contacts');
 ?>
