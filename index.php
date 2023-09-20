@@ -2,7 +2,7 @@
 
 global $wp_query;
 if (isset($wp_query->query_vars['news_item'])) {
-	get_template_part('new/template', 'news-item');
+	get_template_part('new/template', 'news-page');
 	exit();
 }
 

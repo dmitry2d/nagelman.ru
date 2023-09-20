@@ -30,8 +30,10 @@
                 <div class="content__spoiler__title">
                     <?= get_field('spoiler__title'); ?>
                 </div>
-                <div class="content__spoiler__text">
-                    <?= get_field('spoiler__text'); ?>
+                <div class="content__spoiler__wrapper">
+                    <div class="content__spoiler__text">
+                        <?= get_field('spoiler__text'); ?>
+                    </div>
                 </div>
             </div>
         </div>

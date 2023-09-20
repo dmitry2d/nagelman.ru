@@ -15,25 +15,27 @@
             <div class="content__spoiler__title">
                 Способы оплаты
             </div>
-            <div class="content__spoiler__text">
-                <div>
-                    <?= get_field('payment-systems__top-text')?>
+            <div class="content__spoiler__wrapper">
+                <div class="content__spoiler__text">
+                    <div>
+                        <?= get_field('payment-systems__top-text')?>
+                    </div>
+                    
+                    <div class="section__payment-methods__logos">
+
+                        <?php
+                            if(have_rows('payment-systems__icons')):
+                                foreach (get_field('payment-systems__icons') as $icon) {
+                                    echo '<img src="' . $icon['icon'] . '">';
+                                }
+                            endif;
+                        ?>
+
+                    </div>
+
+                        <?= get_field('payment-systems__bottom-text')?>
+
                 </div>
-                
-                <div class="section__payment-methods__logos">
-
-                    <?php
-                        if(have_rows('payment-systems__icons')):
-                            foreach (get_field('payment-systems__icons') as $icon) {
-                                echo '<img src="' . $icon['icon'] . '">';
-                            }
-                        endif;
-                    ?>
-
-                </div>
-
-                    <?= get_field('payment-systems__bottom-text')?>
-
             </div>
         </div>
 

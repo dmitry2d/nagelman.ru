@@ -161,7 +161,7 @@
     .content__spoiler {
         border: 1px solid rgba(var(--color-heading),0.21);
         border-left: none;border-right: none;
-        padding: 10px 0 0;
+        padding: 10px 0;
     }
     .content__spoiler:before {
         content: '';
@@ -185,20 +185,18 @@
         padding-right: 50px;
         cursor: pointer;
     }
+    .content__spoiler__wrapper {
+        overflow: hidden;
+        max-height: 0;
+        transition: 0.4s;
+    }
     .content__spoiler__text {
         font-weight: 400;
         font-size: 15px;
         line-height: 24px;
         color: rgba(var(--color-basetext),1);
-        max-height: 0;
-        transition: 0.2s;
-        overflow: hidden;
-        margin: 0 0 10px 0;
-    }
-    .content__spoiler.open .content__spoiler__title + .content__spoiler__text {
-        /* margin-top: 20px; */
+        margin: 10px 0;
         padding: 20px 0;
-        max-height: 5000px;
     }
     .content__spoiler.open:before {
         transform: rotate(45deg);
@@ -250,8 +248,14 @@
     $(document).ready(() => {
         $(document).on('click', '.content__spoiler', e => {
             if ($(e.target).closest('.content__spoiler__safe').length){
-                // If clicked on "safe" class - do not use spoiler script
+                // If clicked on "safe" class, for example, for link in spoiler - do not use spoiler script
             } else {
+                let wrapperNode = $(e.currentTarget).find('.content__spoiler__wrapper');
+                let textNode = $(e.currentTarget).find('.content__spoiler__text');
+                let newMaxHeight = $(e.currentTarget).hasClass('open') ? 0 : textNode.outerHeight()
+                wrapperNode.css({
+                   'max-height': newMaxHeight
+                });
                 $(e.currentTarget).toggleClass('open');
             };
         });
