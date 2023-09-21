@@ -263,6 +263,12 @@
         });
     });
 
+    // Share popup
+
+    $(document).on('click', e => {
+        $('[share-button-id]').removeClass('open');
+    })
+
 
 </script>
 

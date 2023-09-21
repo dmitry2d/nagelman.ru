@@ -29,8 +29,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name='wmail-verification' content='9b2a6a897118713b8712be1fc92b67fc' />
         <meta name="yandex-verification" content="9022ea13443a9e20" />
-        <title><?php wp_title(); ?></title>
+        <meta property="og:title" content="" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="<?= get_template_directory_uri() . "/new/images/logo_share.png"?>" />
+        <meta property="og:url" content="https://elenanagelman.ru" />
+        <meta property="og:description" content="Консультация психолога онлайн" />
         <?php wp_head(); ?>
+        <title><?php
+            if (get_query_var('page_title') != '') {
+                echo get_query_var('page_title');
+            } else {
+                wp_title();
+            };
+            
+        ?></title>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134623459-1"></script>        
@@ -42,14 +54,18 @@
         </script>
 
         <!-- jQuery -->
-        <script
+        <!-- <script
             src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
             integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
             crossorigin="anonymous">
-        </script>
+        </script> -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+
+        <!-- VK Shares -->
+        <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
 
     </head>
 

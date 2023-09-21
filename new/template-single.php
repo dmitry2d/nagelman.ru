@@ -25,7 +25,11 @@
             
             <?php
                 the_content ();
+                
+                get_template_part ('new/section', 'share-button');
             ?>
+
+
 
             <!-- Add service card if it's in Services category -->
             <?php

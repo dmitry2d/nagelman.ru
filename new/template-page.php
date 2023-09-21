@@ -21,7 +21,12 @@
         <div class="template_page__data">
             <?php
                 the_content ();
+                set_query_var('share_link', get_permalink()); 
+                get_template_part('new/section', 'share-button');
             ?>
+            <br>
+            <br>
+
         </div>
             <?php
                 if (get_the_ID() != 35) {

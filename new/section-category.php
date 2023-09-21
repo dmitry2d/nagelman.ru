@@ -80,9 +80,15 @@
                         <?php
                             } else {
                         ?>
-                            <a href="<?php the_permalink();?>" class="section__category__item__link">
-                                Читать полностью
-                            </a>
+                            <div class="section__category__item__links">
+                                <a href="<?php the_permalink();?>" class="section__category__item__link">
+                                    Читать полностью
+                                </a>
+                                <?php
+                                    set_query_var('share_link', get_permalink()); 
+                                    get_template_part('new/section', 'share-button');
+                                ?>
+                            </div>
                         <?php
                             }
                         ?>
@@ -192,7 +198,21 @@
     a.section__category__item__link:hover {
         color: rgba(var(--color-basetext),1);
     }
+    .section__category__item__links .share__link {
+        padding: 12px 8px;
+        border: 1px solid #3A6F84;
+        border-radius: 50px;
+        margin-left: 10px;
+    }
+    .section__category__item__links .share__link span {
+        display: none;
+    }
+    .section__category__item__links .share__link img {
+        left: -5px;
+    }
+    
 
+    
     @media screen and (max-width: 800px) {
         .section__category__item {
             display: block;
