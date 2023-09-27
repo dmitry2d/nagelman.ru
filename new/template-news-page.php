@@ -90,7 +90,7 @@
     .news__page .template_page__data,
     .news__page .template_page__data p {
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 400;
     }
     @media screen and (max-width: 800px) {
         .news__page__date {

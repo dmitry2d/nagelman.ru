@@ -114,7 +114,7 @@
             $('[share-message-id="<?=$share_button_id?>"]').addClass('visible');
             setTimeout (() => {
                 $('[share-message-id="<?=$share_button_id?>"]').removeClass('visible');
-            }, 2000);
+            }, 1300);
         });
     
     })();
@@ -209,8 +209,10 @@
         border-radius: 5px;
         background: white;
         box-shadow: 0 10px 30px #00000010;
+        pointer-events: none;
     }
     .share-message {
+        pointer-events: none;
     }
     
 

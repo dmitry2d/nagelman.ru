@@ -10,7 +10,7 @@
             <div class="content__spoiler__text">
                 <?php
                 if (strlen($post -> post_content) > 650) {
-                    echo wpautop(substr($post -> post_content, 0, 650) . ' ...');
+                    echo wpautop(mb_substr($post -> post_content, 0, 650) . '..');
                 } else {
                     the_content();
                 }
