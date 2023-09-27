@@ -8,7 +8,13 @@
         </div>
         <div class="content__spoiler__wrapper">
             <div class="content__spoiler__text">
-                <?php the_content(); ?>
+                <?php
+                if (strlen($post -> post_content) > 650) {
+                    echo wpautop(substr($post -> post_content, 0, 650) . ' ...');
+                } else {
+                    the_content();
+                }
+                ?>
                 <div class="news__item__links content__spoiler__safe">
                     <div class="news__item__details">
                         <a href="/news/<?=get_the_ID();?>">Подробнее</a>
@@ -16,7 +22,7 @@
                     <div class="news__item__share">
                         <?php
                             global $post;
-                            set_query_var('share_link', "/news/". $post-> ID); 
+                            set_query_var('share_link', get_site_url() . "/news/". $post-> ID); 
                             get_template_part ('new/section', 'share-button');
                         ?>
                     </div>
@@ -43,15 +49,14 @@
     .news__item__links {
         margin: 20px 0 0;
         display: flex;
-        align-items: center;
+        align-items: stretch;
     }
     .news__item__share {
         margin-left: 20px;
-        /* display: flex;
-        align-items: center; */
     }
     .news__item__share img {
-        margin-left: 10px;
+        margin-left: 5px;
+        
     }
     .news__item__links a {
         color: #3A6F84;
@@ -62,7 +67,8 @@
         width: 24px;
     }
     @media screen and (max-width: 800px) {
-        .news__item__links a {
+        .news__item__links a,
+        .news__item__links a * {
             color: #3A6F84;
             font-weight: 500;
             font-size: 16px;

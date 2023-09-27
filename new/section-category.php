@@ -187,19 +187,24 @@
     .section__category__item__text img {
         display: none;
     }
+    .section__category__item__links {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
     a.section__category__item__link {
         display: inline-block;
         padding: 12px 22px;
         border: 1px solid rgba(var(--color-basetext),1);
         border-radius: 50px;
-        margin-top: 30px;
+        /* margin-top: 30px; */
         color: rgba(var(--color-basetext),1);
     }
     a.section__category__item__link:hover {
         color: rgba(var(--color-basetext),1);
     }
     .section__category__item__links .share__link {
-        padding: 12px 8px;
+        padding: 12px 9px;
         border: 1px solid #3A6F84;
         border-radius: 50px;
         margin-left: 10px;
@@ -208,7 +213,7 @@
         display: none;
     }
     .section__category__item__links .share__link img {
-        left: -5px;
+        left: -3px;
     }
     
 

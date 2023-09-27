@@ -1,7 +1,7 @@
 
 <?php
-    $share_link = get_site_url() . get_query_var ('share_link');
-    $share_urls = array(
+    $share_link = get_query_var ('share_link');
+    $share_urls = array (
         'url' => $share_link,
         'tg' => '',
         'vk' => '',
@@ -11,9 +11,9 @@
     $share_image_url = get_template_directory_uri() . "/new/images/logo_share.png";
     $share_title = get_the_title();
 
-    $share_urls['vk'] = "https://vk.com/share.php?url=" . $share_link . "&image=" . $share_image_url . "&title=" . $share_title;
-    $share_urls['tg'] = "https://telegram.me/share/url?url=" . $share_link . "&text=" . $share_title;
-    $share_urls['wa'] = "https://wa.me/?text=" . $share_title . ': ' . $share_link;
+    $share_urls['vk'] = "https://vk.com/share.php?url=" . urlencode ($share_link . "&image=" . $share_image_url . "&title=" . $share_title);
+    $share_urls['tg'] = "https://telegram.me/share/url?url=" . urlencode ($share_link . "&text=" . $share_title);
+    $share_urls['wa'] = "https://wa.me/?text=" . urlencode ($share_title . ': ' . $share_link);
 
     $share_button_id = uniqid();
 
@@ -28,7 +28,7 @@
     <img src="<?= get_template_directory_uri(); ?>/new/images/icn_share.svg">
     <div class="share__popup">
         <div class="share__popup__wrapper">
-            <div class="share__popup__item"
+            <div show-share-message-id="<?= $share_button_id ?>" share-message-content="Ссылка скопирована" class="share__popup__item"
                 share-button-copy="<?=$share_urls['url']?>">
                 <div class="share__popup__item__icon">
                     <img src="<?= get_template_directory_uri(); ?>/new/images/icn_share_url.svg" alt="">
@@ -59,6 +59,12 @@
         </div>
     </div>
 </a>
+
+<div class="share-message" share-message-id="<?= $share_button_id?>">
+    <div class="share-message__wrapper">
+        <div class="share-message__content"></div>
+    </div>
+</div>
 
 <script>
     (function () {
@@ -100,6 +106,16 @@
             let url = $(this).attr('share-button-copy');
             navigator.clipboard.writeText(url);
         });
+
+        $('[show-share-message-id="<?= $share_button_id ?>"]').on('click', e => {
+            console.log ('<?=$share_button_id?>');
+            const sharemessageContent = $(e.target).closest('[share-message-content]').attr('share-message-content');
+            $('[share-message-id="<?=$share_button_id?>"] .share-message__content').html(sharemessageContent);
+            $('[share-message-id="<?=$share_button_id?>"]').addClass('visible');
+            setTimeout (() => {
+                $('[share-message-id="<?=$share_button_id?>"]').removeClass('visible');
+            }, 2000);
+        });
     
     })();
 
@@ -112,7 +128,8 @@
 -->
 <style>
     .share__link {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
         width: fit-content;
         margin-right: auto;
         font-weight: 500;
@@ -130,7 +147,7 @@
     }
     .share__link img {
         width: 24px;
-        margin-left: 10px;
+        margin-left: 5px;
     }
     .share__popup__wrapper {
         position: fixed;
@@ -167,6 +184,36 @@
         font-size: 15px;
         padding: 5px 10px;
     }
+
+    .share-message {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        background: #00000030;
+    }
+    .share-message.visible {
+        opacity: 1;
+        z-index: 10000;
+    }
+    .share-message__wrapper {
+        padding: 20px 30px;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 10px 30px #00000010;
+    }
+    .share-message {
+    }
+    
+
     @media screen and (max-width: 800px) {
         .share__link,
         .share__link a span{

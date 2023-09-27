@@ -43,7 +43,7 @@
                 </div>
 
                 <?php
-                    set_query_var('share_link', '/news/'. $post-> ID); 
+                    set_query_var('share_link',  get_site_url() . '/news/'. $post-> ID); 
                     get_template_part ('new/section', 'share-button');
                 ?>
 
