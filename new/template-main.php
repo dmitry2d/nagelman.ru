@@ -33,9 +33,9 @@
 ?>
 
 <?php
-    if (isset($_GET['dev'])) {
+    // if (isset($_GET['dev'])) {
         get_template_part('new/section', 'news-mainpage');
-    };
+    // };
 ?>
 
 <?php 

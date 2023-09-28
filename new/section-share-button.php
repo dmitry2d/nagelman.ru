@@ -69,46 +69,48 @@
 <script>
     (function () {
 
+        // Открываю меню "поделиться"
+        // У каждой кнопки уникальный ID
         const node = $('[share-button-id="<?=$share_button_id?>"]');
 
+        // При нажатии показать меню
         node.on('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             setOffset(node);
             $(this).toggleClass('open');
         });
-
+        // Поставить координаты для меню
         let setOffset = function (node) {
             let wrapper = node.find('.share__popup__wrapper');
+            // Подвинуть меню от правого края, если экран узкий
             let maxLeft = Math.max (0, $(window).width() - wrapper.width() - 20);
-            
             wrapper.css ({
                 top: node.offset().top - $(window).scrollTop() + 30,
                 left: Math.min(maxLeft - 40, node.offset().left + node.width() - 60)
             });
         }
-
+        // Двигаю меню при скроллинге экрана
         $(window).on('scroll', e => {
             setOffset(node);
         });
-
+        // Двигаю меню при ресайзе экрана
         $(window).resize('scroll', e => {
             setOffset(node);
         });
 
-
-        $('[share-button-link]').on('click', function (e) {
+        // Кнопка соцсетей - открыть в новом окне
+        $('[share-button-id="<?=$share_button_id?>"] [share-button-link]').on('click', function (e) {
             let url = $(this).attr('share-button-link');
             window.open(url, 'Поделиться', 'left=20,top=20,width=600,height=500,toolbar=1,resizable=0');
-
         });
-        $('[share-button-copy]').on('click', function (e) {
+        // Кнопка "скопировать" - скопировать в клипборд
+        $('[share-button-id="<?=$share_button_id?>"] [share-button-copy]').on('click', function (e) {
             let url = $(this).attr('share-button-copy');
             navigator.clipboard.writeText(url);
         });
-
+        // Показать подсказку при нажатии "скопировать"
         $('[show-share-message-id="<?= $share_button_id ?>"]').on('click', e => {
-            console.log ('<?=$share_button_id?>');
             const sharemessageContent = $(e.target).closest('[share-message-content]').attr('share-message-content');
             $('[share-message-id="<?=$share_button_id?>"] .share-message__content').html(sharemessageContent);
             $('[share-message-id="<?=$share_button_id?>"]').addClass('visible');
