@@ -13,8 +13,8 @@
 
     $share_urls['vk'] = "https://vk.com/share.php?url=" . urlencode ($share_link . "&image=" . $share_image_url . "&title=" . $share_title);
     $share_urls['tg'] = "https://telegram.me/share/url?url=" . urlencode ($share_link . "&text=" . $share_title);
-    $share_urls['wa'] = "https://wa.me/?text=" . urlencode ($share_title . ': ' . $share_link);
-
+    // $share_urls['wa'] = "https://wa.me/?text=" . urlencode ($share_title . ': ' . $share_link);
+    $share_urls['wa'] = "https://api.whatsapp.com/send?text=" . urlencode ($share_title . ': ' . $share_link);
     $share_button_id = uniqid();
 
 ?>
