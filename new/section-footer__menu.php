@@ -30,24 +30,24 @@
         <a href="" class="section__footer__copyright">
             ©<?php echo date('Y');?>. <?php bloginfo('name') ?>
         </a>
+        <div class="section__footer__socials">
+            <a onclick="ym('47499343', 'reachGoal', 'click-on-telegram-top');" rel="nofollow" href="<?= $social_links['tg']?>" title="Мой Telegram">
+                <img src="<?= get_template_directory_uri(); ?>/new/images/telegram_w.svg">
+            </a>  
+            <a onclick="ym('47499343', 'reachGoal', 'click-on-vk-top');" rel="nofollow" href="<?= $social_links['vk']?>" title="Мой VK">
+                <img src="<?= get_template_directory_uri(); ?>/new/images/vk_w.svg">
+            </a>
+            <a onclick="ym('47499343', 'reachGoal', 'click-on-skype-top');" rel="nofollow" href="<?= $social_links['skype']?>" title="Мой Skype">
+                <img src="<?= get_template_directory_uri(); ?>/new/images/skype_w.svg">
+            </a>  
+            <a onclick="ym('47499343', 'reachGoal', 'click-on-whatsapp-top');" rel="nofollow" href="<?= $social_links['wa']?>" target="_blank" title="Мой Whatsapp">
+                <img src="<?= get_template_directory_uri(); ?>/new/images/whatsapp_w.svg">
+            </a>
+            <a href="<?= $social_links['dz']?>" title="">
+                <img src="<?= get_template_directory_uri(); ?>/new/images/dz_w.svg">
+            </a>  
+        </div>
     </mob>
-    <div class="section__footer__socials">
-        <a onclick="ym('47499343', 'reachGoal', 'click-on-telegram-top');" rel="nofollow" href="<?= $social_links['tg']?>" title="Мой Telegram">
-            <img src="<?= get_template_directory_uri(); ?>/new/images/telegram_w.svg">
-        </a>  
-        <a onclick="ym('47499343', 'reachGoal', 'click-on-vk-top');" rel="nofollow" href="<?= $social_links['vk']?>" title="Мой VK">
-            <img src="<?= get_template_directory_uri(); ?>/new/images/vk_w.svg">
-        </a>
-        <a onclick="ym('47499343', 'reachGoal', 'click-on-skype-top');" rel="nofollow" href="<?= $social_links['skype']?>" title="Мой Skype">
-            <img src="<?= get_template_directory_uri(); ?>/new/images/skype_w.svg">
-        </a>  
-        <a onclick="ym('47499343', 'reachGoal', 'click-on-whatsapp-top');" rel="nofollow" href="<?= $social_links['wa']?>" target="_blank" title="Мой Whatsapp">
-            <img src="<?= get_template_directory_uri(); ?>/new/images/whatsapp_w.svg">
-        </a>
-        <a href="<?= $social_links['dz']?>" title="">
-            <img src="<?= get_template_directory_uri(); ?>/new/images/dz_w.svg">
-        </a>  
-    </div>
 </div>
 
 <desk>
@@ -126,6 +126,7 @@
         width: 100%;
         padding: 10px 0 50px;
         font-size: 17px;
+        display: flex;
     }
     .section__footer__copyright {
         -webkit-text-fill-color: rgba(var(--color-basetext),1);
