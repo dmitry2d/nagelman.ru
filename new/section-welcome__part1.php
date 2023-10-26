@@ -432,14 +432,14 @@
         pointer-events: all;
         width: 56px;
         height: 56px;
-        background: url('<?= get_template_directory_uri(); ?>/new/images/slider_arrow.svg"') no-repeat center center;
+        background: url('<?= get_template_directory_uri(); ?>/new/images/slider_arrow.svg') no-repeat center center;
     }
     .section__welcome__problems .flex-direction-nav .flex-prev  {
         left: 24px;
         pointer-events: all;
         width: 56px;
         height: 56px;
-        background: url('<?= get_template_directory_uri(); ?>/new/images/slider_arrow.svg"') no-repeat center center;
+        background: url('<?= get_template_directory_uri(); ?>/new/images/slider_arrow.svg') no-repeat center center;
         transform: scaleX(-1);
     }
 

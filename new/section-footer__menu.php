@@ -211,5 +211,6 @@
         .section__footer__dev {
             text-align: left;
         }
+    }
 
 </style>

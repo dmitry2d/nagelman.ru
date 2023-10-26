@@ -154,7 +154,7 @@
         pointer-events: all;
         width: 56px;
         height: 56px;
-        background: url('<?= get_template_directory_uri(); ?>/new/images/slider_arrow.svg"') no-repeat center center;
+        background: url('<?= get_template_directory_uri(); ?>/new/images/slider_arrow.svg') no-repeat center center;
         transform: scaleX(-1);
     }
     .section__feedback .flex-direction-nav .flex-next  {
@@ -162,7 +162,7 @@
         pointer-events: all;
         width: 56px;
         height: 56px;
-        background: url('<?= get_template_directory_uri(); ?>/new/images/slider_arrow.svg"') no-repeat center center;
+        background: url('<?= get_template_directory_uri(); ?>/new/images/slider_arrow.svg') no-repeat center center;
     }
     .section__feedback__more {
         width: 100%;
