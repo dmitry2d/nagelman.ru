@@ -63,6 +63,10 @@
         display: none!important;
     }
 
+    a {
+        color: rgba(var(--color-highlight),1);
+    }
+
     mob {
         display: none;
     }
