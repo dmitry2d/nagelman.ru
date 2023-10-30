@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
     /*
     * Section Header
@@ -21,7 +22,6 @@
     $GLOBALS['social_links'] = $social_links;
 ?>
 <html class="no-js" lang="ru-RU">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -45,7 +45,7 @@
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134623459-1"></script>        
-        <script>
+        <script async>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -53,7 +53,7 @@
         </script>
 
         <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="<?=get_template_directory_uri()?>'/new/scripts/jquery.js'"></script>
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +62,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
 
         <!-- VK Shares -->
-        <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
+        <script async type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
 
     </head>
 
@@ -74,7 +74,7 @@
         <![endif]-->
 
         <!-- Yandex.Metrika counter -->
-        <script type="text/javascript" >
+        <script async type="text/javascript" >
             (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
             (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
@@ -178,7 +178,7 @@
     }
 </style>
     
-<script>
+<script async>
     $(document).ready (() => {
 
         // Bind Menu Open/Close

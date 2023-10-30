@@ -66,7 +66,7 @@
     </div>
 </div>
 
-<script>
+<script async>
     (function () {
 
         // Открываю меню "поделиться"

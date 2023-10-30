@@ -104,9 +104,4 @@
 </style>
 
 
-<script>
-    $(document).ready(() => {
-    });
-</script>
-
 

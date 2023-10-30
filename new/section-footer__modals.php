@@ -50,7 +50,7 @@
     }
 </style>
 
-<script>
+<script async>
     $('.theme-modal-window__close-button').on('click', e => {
         $(e.target).closest('.theme-modal-window').removeClass('open');
     })

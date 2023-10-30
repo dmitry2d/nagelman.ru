@@ -17,13 +17,13 @@
     ?>
 
     <?php wp_footer();?>
-    <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/main.js"></script>
+    <!-- <script type="text/javascript" src="<?php bloginfo('template_url') ?>/js/main.js"></script> -->
 
 
     <!-- Lightbox -->
     <script src="<?= get_template_directory_uri();?>/new/vendor/lightbox/js/lightbox.js"></script>
     <link href="<?= get_template_directory_uri();?>/new/vendor/lightbox/css/lightbox.css" rel="stylesheet" />
-    <script>
+    <script async>
         function setLightboxHeight () {
             lightbox.option ({
                 fitImagesInViewport: true,

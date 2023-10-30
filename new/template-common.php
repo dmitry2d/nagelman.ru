@@ -228,7 +228,7 @@
 
 </style>
 
-<script>
+<script async>
     
     // template-common.php
 

@@ -165,7 +165,7 @@
 </style>
 
 
-<script>
+<script async>
     
     $(document).ready(() => {
         let window_width = $(window).width();

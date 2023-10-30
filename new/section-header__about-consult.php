@@ -113,7 +113,7 @@
     
 </style>
 
-<script>
+<script async>
     $('#online-consult-form-open').on('click', e => {
         $('#online-consult-form-container').addClass('pokaz');
     });

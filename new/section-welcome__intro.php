@@ -563,7 +563,7 @@
 </style>
 
 
-<script>
+<script async>
 
     $(document).ready (() => {
         

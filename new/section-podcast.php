@@ -7,7 +7,7 @@
     $podcast_list = get_field('podcasts', 2);
 ?>
 
-<script>
+<script async>
     // Объект подкастов
     const podcastData = {
         idList: [],
@@ -49,7 +49,7 @@
                             <div class="podcast__player__item__duration"></div>
                         </div>
                     </div>
-                    <script>
+                    <script async>
                         podcastData.idList.push("<?=$podcast['link']?>")
                     </script>
                 <?php
@@ -323,7 +323,7 @@
 
 
 
-<script>
+<script async>
 
    initYoutubeiFrameAPI ();
    
